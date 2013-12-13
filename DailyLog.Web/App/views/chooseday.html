@@ -1,0 +1,11 @@
+﻿<section>
+    <h2 data-bind="html:displayName"></h2>
+    
+    <label>
+        Date:
+        <input type="date" value="" data-bind="value: date, jqueryui: { widget: 'datepicker', options: { showPeriod: true } }" />
+    </label>
+
+    <div data-bind="compose: 'logDisplay.html'"></div>
+
+</section>

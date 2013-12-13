@@ -1,0 +1,18 @@
+﻿<div class="dayPickerDialog">
+    
+    <div class="modal-header">
+        <h3 data-bind="text: displayName"></h3>
+    </div>
+    
+    <div class="modal-body">
+        <label>
+            Date:
+            <input type="date" value="" data-bind="value: date, jqueryui: { widget: 'datepicker', options: { showPeriod: true } }" />
+        </label>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn" data-bind="click: okHandler">OK</button>    
+        <button class="btn" data-bind="click: cancelHandler">Cancel</button>    
+    </div>
+</div>
