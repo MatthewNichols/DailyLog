@@ -1,21 +1,20 @@
-﻿define(['durandal/system'], function (system) {
+﻿define(['durandal/system','jquery'], function (system, jQuery) {
 
     var firstTime = true;
     
     return {
+
+        setup: function()
+        {
+            system.log('backend.setup');
+            return jQuery.connection.hub.start();
+        },
         
         getData: function(date)
         {
             date = parseDateString(date);
-            
-            var returnEntries = firstTime ? ["First", "Second", "Third"] : ["First 2", "Second 2", "Third 2"];
 
-            firstTime = false;
-
-            return {
-                date: date,
-                entries:  returnEntries
-            };
+            return jQuery.connection.logData.server.getLogData(date);
         },
 
         activate: function()

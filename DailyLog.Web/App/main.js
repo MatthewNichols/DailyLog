@@ -11,7 +11,7 @@
 define('jquery', function() { return jQuery; });
 define('knockout', ko);
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (system, app, viewLocator) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'modules/backend'],  function (system, app, viewLocator, backend) {
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");
@@ -30,7 +30,13 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (s
         //Look for partial views in a 'views' folder in the root.
         viewLocator.useConvention();
 
-        //Show the app by setting the root view model for our application with a transition.
-        app.setRoot('viewmodels/shell', 'entrance');
+        var backendReady = backend.setup();
+        backendReady.done(function()
+        {
+            //Show the app by setting the root view model for our application with a transition.
+            app.setRoot('viewmodels/shell', 'entrance');
+        });
+
+
     });
 });

@@ -1,6 +1,9 @@
 ﻿<div>
     <h3>Actions</h3>
     <ul data-bind="foreach: entries">
-        <li data-bind="html: $data"></li>
+        <li>
+            <span data-bind="html: Name"/>
+            <input data-bind="value: Number" />
+        </li>
     </ul>
 </div>

@@ -23,9 +23,17 @@
 
         this.activate = function (dateString) {
             system.log('day.activate');
-            var data = backend.getData(dateString);
-            system.log(data);
-            this.entries = data.entries;
+            
+            var dataPromise = backend.getData(dateString);
+            dataPromise.done(function(data)
+            {
+                system.log(data);
+                
+                self.entries = data.LogItems;
+            });
+
+            
+            
         };
     };
 
