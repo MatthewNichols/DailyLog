@@ -29,7 +29,7 @@
             {
                 system.log(data);
                 
-                self.entries = data.LogItems;
+                self.entries = data.logItems;
             });
 
             

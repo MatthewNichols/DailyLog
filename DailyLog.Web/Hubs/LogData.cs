@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace DailyLog.Web.Hubs
 {
@@ -24,14 +26,20 @@ namespace DailyLog.Web.Hubs
 
     public class DayLog
     {
+        [JsonProperty("date")]
         public DateTime Date { get; set; }
+
+        [JsonProperty("logItems")]
         public IList<LogItem> LogItems { get; set; }
 
     }
 
     public class LogItem
     {
+        [JsonProperty("name")]
         public string Name { get; set; }
+
+        [JsonProperty("number")]
         public int Number { get; set; }
     }
 }
