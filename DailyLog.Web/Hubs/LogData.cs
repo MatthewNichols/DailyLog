@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using config = System.Configuration.ConfigurationManager;
+using DailyLog.Domain;
+using DailyLog.Persistence;
 using Microsoft.AspNet.SignalR;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace DailyLog.Web.Hubs
 {
@@ -12,6 +11,16 @@ namespace DailyLog.Web.Hubs
     {
         public DayLog GetLogData(DateTime date)
         {
+            var logDataRepository = new DayLogRepository(config.ConnectionStrings["mongo"].ConnectionString);
+
+            var dayLog = logDataRepository.GetByDate(date);
+
+            if (dayLog != null)
+            {
+                return dayLog;
+            }
+
+            //TODO: make a new one from defaults
             return new DayLog
             {
                 Date = date,
@@ -22,24 +31,5 @@ namespace DailyLog.Web.Hubs
                 }
             };
         }
-    }
-
-    public class DayLog
-    {
-        [JsonProperty("date")]
-        public DateTime Date { get; set; }
-
-        [JsonProperty("logItems")]
-        public IList<LogItem> LogItems { get; set; }
-
-    }
-
-    public class LogItem
-    {
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("number")]
-        public int Number { get; set; }
     }
 }

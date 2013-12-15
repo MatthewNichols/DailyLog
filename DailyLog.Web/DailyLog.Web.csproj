@@ -15,7 +15,7 @@
     <AssemblyName>DailyLog.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -315,6 +315,16 @@
   <ItemGroup>
     <Content Include="Content\font\FontAwesome.otf" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DailyLog.Domain\DailyLog.Domain.csproj">
+      <Project>{b692737d-eb99-43d1-b4f7-6ade37713dc3}</Project>
+      <Name>DailyLog.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DailyLog.Persistence\DailyLog.Persistence.csproj">
+      <Project>{4afda3f7-dc1b-407a-85ae-0a0fa6755ce7}</Project>
+      <Name>DailyLog.Persistence</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -333,7 +343,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57599/</IISUrl>
+          <IISUrl>http://DailyLog</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
