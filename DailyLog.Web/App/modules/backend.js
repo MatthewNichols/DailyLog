@@ -1,6 +1,7 @@
 ﻿define(['durandal/system','jquery'], function (system, jQuery) {
 
     var firstTime = true;
+    var serverConn = jQuery.connection.logData.server;
     
     return {
 
@@ -13,8 +14,13 @@
         getData: function(date)
         {
             date = parseDateString(date);
+            
+            return serverConn.getLogData(date);
+        },
 
-            return jQuery.connection.logData.server.getLogData(date);
+        save: function(dayLog)
+        {
+            return serverConn.save(dayLog);
         },
 
         activate: function()

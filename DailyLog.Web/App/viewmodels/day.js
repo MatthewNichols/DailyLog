@@ -21,6 +21,11 @@
             return showDialogResult;
         };
 
+        this.save = function()
+        {
+            backend.save();
+        };
+
         this.activate = function (dateString) {
             system.log('day.activate');
             
@@ -30,11 +35,9 @@
                 system.log(data);
                 
                 self.entries = data.logItems;
-            });
-
-            
-            
+            });   
         };
+        
     };
 
     //Note: This module exports a function. That means that you, the developer, can create multiple instances.

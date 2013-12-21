@@ -9,11 +9,16 @@ namespace DailyLog.Web.Hubs
 {
     public class LogData : Hub
     {
+        private static readonly DayLogRepository _logDataRepository;
+
+        static LogData()
+        {
+            _logDataRepository = new DayLogRepository(config.ConnectionStrings["mongo"].ConnectionString);
+        }
+
         public DayLog GetLogData(DateTime date)
         {
-            var logDataRepository = new DayLogRepository(config.ConnectionStrings["mongo"].ConnectionString);
-
-            var dayLog = logDataRepository.GetByDate(date);
+            var dayLog = _logDataRepository.GetByDate(date);
 
             if (dayLog != null)
             {
@@ -30,6 +35,11 @@ namespace DailyLog.Web.Hubs
                     new LogItem {Name = "Sit Ups", Number = 0},
                 }
             };
+        }
+
+        public void Save(DayLog dayLog)
+        {
+            _logDataRepository.Save(dayLog);
         }
     }
 }
