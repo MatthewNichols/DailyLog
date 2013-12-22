@@ -2,7 +2,8 @@
     var ctor = function ()
     {
         var self = this;
-
+        //var _dayLog;
+        
         this.displayName = 'Daily Log';
 
         //this needs to move to a logDisplay viewmodel
@@ -15,7 +16,7 @@
 
             showDialogResult.done(function() {               
                 var data = backend.getData(dpVm.date);
-                self.entries = data.entries;
+                self.data = data;
             });
 
             return showDialogResult;
@@ -23,7 +24,8 @@
 
         this.save = function()
         {
-            backend.save();
+            console.log('save', self.data);
+            backend.save(self.data);
         };
 
         this.activate = function (dateString) {
@@ -34,7 +36,8 @@
             {
                 system.log(data);
                 
-                self.entries = data.logItems;
+                self.data = data;
+                //self.entries = data.logItems;
             });   
         };
         

@@ -1,5 +1,5 @@
 ﻿requirejs.config({
-    urlArgs: "bust=" + (new Date()).getTime(),
+    //urlArgs: "bust=" + (new Date()).getTime(),
     paths: {
         'text': '../Scripts/text',
         'durandal': '../Scripts/durandal',

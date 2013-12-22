@@ -53,10 +53,10 @@ namespace DailyLog.Persistence
             return GetMongoCollection().FindOneById(id);
         }
 
-        public T Save(T dayLog)
+        public virtual T Save(T item)
         {
-            GetMongoCollection().Save(dayLog);
-            return dayLog;
+            GetMongoCollection().Save(item);
+            return item;
         }
     }
 }

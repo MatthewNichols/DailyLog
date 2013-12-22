@@ -18,7 +18,7 @@ namespace DailyLog.Web.Hubs
 
         public DayLog GetLogData(DateTime date)
         {
-            var dayLog = _logDataRepository.GetByDate(date);
+            var dayLog = _logDataRepository.GetByDate(date.Date);
 
             if (dayLog != null)
             {
@@ -39,6 +39,7 @@ namespace DailyLog.Web.Hubs
 
         public void Save(DayLog dayLog)
         {
+            dayLog.Date = dayLog.Date.Date;
             _logDataRepository.Save(dayLog);
         }
     }

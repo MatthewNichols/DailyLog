@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DailyLog.Domain;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 
 namespace DailyLog.Persistence
@@ -20,6 +21,15 @@ namespace DailyLog.Persistence
         {
             var dayLogs = GetMongoCollection().AsQueryable().Where(log => log.Date == date);
             return dayLogs.Any() ? dayLogs.Single() : null;
+        }
+
+        public override DayLog Save(DayLog dayLog)
+        {
+            var query = Query<DayLog>.EQ(dl => dl.Date, dayLog.Date);
+            var update = Update<DayLog>.Replace(dayLog);
+            GetMongoCollection().Update(query, update, UpdateFlags.Upsert);
+
+            return dayLog;
         }
 
         public override string CollectionName

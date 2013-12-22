@@ -1,5 +1,5 @@
-﻿define(['durandal/system','jquery'], function (system, jQuery) {
-
+﻿define(['durandal/system', 'jquery', 'viewmodels/dayLog'], function (system, jQuery, dayLog)
+{
     var firstTime = true;
     var serverConn = jQuery.connection.logData.server;
     
@@ -14,13 +14,20 @@
         getData: function(date)
         {
             date = parseDateString(date);
+
+            var getLogDataPromise = serverConn.getLogData(date);
             
-            return serverConn.getLogData(date);
+            var returningViewModelPromise = getLogDataPromise.then(function(data) {
+                console.log("then", data);
+                return new dayLog(data);
+            });
+            
+            return returningViewModelPromise;
         },
 
-        save: function(dayLog)
+        save: function(data)
         {
-            return serverConn.save(dayLog);
+            return serverConn.save(data);
         },
 
         activate: function()

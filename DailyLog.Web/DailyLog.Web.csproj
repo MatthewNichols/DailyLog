@@ -160,6 +160,7 @@
     <Content Include="App\modules\backend.js" />
     <Content Include="App\viewmodels\chooseday.js" />
     <Content Include="App\viewmodels\day.js" />
+    <Content Include="App\viewmodels\dayLog.js" />
     <Content Include="App\viewmodels\dayPickerDialog.js" />
     <Content Include="App\viewmodels\shell.js" />
     <Content Include="App\views\dayPickerDialog.html" />
@@ -341,7 +342,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>50662</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://DailyLog</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
