@@ -9,8 +9,7 @@
         activate: function () {
             router.map([
                 { route: '', title: 'Today', moduleId: 'viewmodels/day', nav: true },
-                { route: 'day/:dateString', title: 'Today', moduleId: 'viewmodels/day', nav: false },
-                { route: 'chooseday', title:'Different Day', moduleId: 'viewmodels/chooseday', nav: true }
+                { route: 'day/:dateString', title: 'Today', moduleId: 'viewmodels/day', nav: false }
                 
             ]).buildNavigationModel();
             

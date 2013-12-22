@@ -16,7 +16,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'modules/back
     system.debug(true);
     //>>excludeEnd("build");
 
-    app.title = 'Durandal Starter Kit';
+    app.title = 'Day Log';
 
     app.configurePlugins({
         router: true,

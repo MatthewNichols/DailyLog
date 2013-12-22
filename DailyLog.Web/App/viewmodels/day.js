@@ -2,9 +2,8 @@
     var ctor = function ()
     {
         var self = this;
-        //var _dayLog;
         
-        this.displayName = 'Daily Log';
+        this.displayName = 'Day Log';
 
         //this needs to move to a logDisplay viewmodel
         this.entries = [];
@@ -37,7 +36,6 @@
                 system.log(data);
                 
                 self.data = data;
-                //self.entries = data.logItems;
             });   
         };
         

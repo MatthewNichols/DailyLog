@@ -158,13 +158,11 @@
   <ItemGroup>
     <Content Include="App\main.js" />
     <Content Include="App\modules\backend.js" />
-    <Content Include="App\viewmodels\chooseday.js" />
     <Content Include="App\viewmodels\day.js" />
     <Content Include="App\viewmodels\dayLog.js" />
     <Content Include="App\viewmodels\dayPickerDialog.js" />
     <Content Include="App\viewmodels\shell.js" />
     <Content Include="App\views\dayPickerDialog.html" />
-    <Content Include="App\views\chooseday.html" />
     <Content Include="App\views\logDisplay.html" />
     <Content Include="App\views\day.html" />
     <Content Include="App\views\shell.html" />
