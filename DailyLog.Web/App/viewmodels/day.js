@@ -5,17 +5,16 @@
         
         this.displayName = 'Day Log';
 
-        //this needs to move to a logDisplay viewmodel
-        this.entries = [];
-
         this.pickDay = function()
         {
             var dpVm = new dayPicker();
             var showDialogResult = app.showDialog(dpVm);
 
             showDialogResult.done(function() {               
-                var data = backend.getData(dpVm.date);
-                self.data = data;
+                var dataPromise = backend.getData(dpVm.date);
+                dataPromise.done(function (data) {
+                    self.data = data;
+                });
             });
 
             return showDialogResult;
@@ -23,7 +22,6 @@
 
         this.save = function()
         {
-            console.log('save', self.data);
             backend.save(self.data);
         };
 
@@ -32,9 +30,7 @@
             
             var dataPromise = backend.getData(dateString);
             dataPromise.done(function(data)
-            {
-                system.log(data);
-                
+            {                
                 self.data = data;
             });   
         };

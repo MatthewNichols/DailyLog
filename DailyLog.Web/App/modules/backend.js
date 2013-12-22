@@ -18,7 +18,6 @@
             var getLogDataPromise = serverConn.getLogData(date);
             
             var returningViewModelPromise = getLogDataPromise.then(function(data) {
-                console.log("then", data);
                 return new dayLog(data);
             });
             
@@ -38,7 +37,6 @@
 
     function parseDateString(dateOrString)
     {
-        console.log("dateString", typeof(dateOrString));
         var date = new Date();
         if (typeof(dateOrString) == "string")
         {
